@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fake Bets - Ligue 1</title>
+    <!-- Inclusion de la police Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Inclusion du fichier CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <ul>
+                <li><a href="#" id="nav-matches" class="active">Matchs</a></li>
+                <li><a href="#" id="nav-history">Historique</a></li>
+            </ul>
+        </nav>
+
+        <!-- Solde et bouton de réinitialisation -->
+        <div class="balance">
+            <p>Solde actuel : <span id="balance">100</span> FED¤</p>
+            <button onclick="resetGame()">Réinitialiser le jeu</button>
+        </div>
+
+        <!-- Section des matchs -->
+        <div id="matches-section">
+            <!-- Affichage du match -->
+            <div class="match-container" id="match-container">
+                <!-- Le match sera généré dynamiquement ici -->
+            </div>
+
+            <!-- Bouton "Passer le match" -->
+            <div class="skip-match">
+                <button id="skip-match-button">Passer le match</button>
+            </div>
+
+            <!-- Affichage des scores précédents -->
+            <div class="previous-scores" id="previous-scores">
+                <h2>Scores des matchs précédents</h2>
+                <ul id="scores-list">
+                    <!-- Les scores seront affichés ici -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section de l'historique -->
+        <div id="history-section" style="display: none;">
+            <h2>Historique des paris</h2>
+            <ul class="history-list" id="history-list">
+                <!-- Les entrées d'historique seront ajoutées ici dynamiquement -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modale pour la saisie du pari -->
+    <div id="bet-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close-button">&times;</span>
+            <h2 id="modal-team-name"></h2>
+            <p>Entrez le montant que vous souhaitez parier :</p>
+            <input type="number" id="bet-amount-input" min="1" step="0.01" placeholder="Montant du pari">
+            <button id="confirm-bet-button">Confirmer le pari</button>
+        </div>
+    </div>
+
+    <!-- Modale pour afficher les joueurs -->
+    <div id="team-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-team-modal" class="close-button">&times;</span>
+            <h2 id="team-modal-name"></h2>
+            <ul id="team-players-list">
+                <!-- Liste des joueurs -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modale pour les messages personnalisés -->
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-message-modal" class="close-button">&times;</span>
+            <h2 id="message-modal-title"></h2>
+            <p id="message-modal-text"></p>
+            <div id="message-modal-buttons">
+                <!-- Les boutons seront ajoutés dynamiquement ici -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale pour la victoire finale -->
+    <div id="victory-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="victory-message"></h2>
+            <!-- Canvas pour les confettis -->
+            <canvas id="confetti-canvas"></canvas>
+            <button id="close-victory-button">Fermer</button>
+        </div>
+    </div>
+
+    <!-- Version et crédits -->
+    <footer>
+        <p>Version 0.2</p>
+        <p>Crédit : Enki Petrotto GPT BUDDY</p>
+    </footer>
+
+    <!-- Inclusion du fichier JavaScript externe -->
+    <script src="script.js"></script>
+    <!-- Inclusion de la librairie canvas-confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+</body>
+</html>
